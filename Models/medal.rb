@@ -16,6 +16,7 @@ attr_reader(:id, :athlete_id, :event_id, :type)
   end
 
   def save()
+    return if check_if_nation_has_won_medal
     sql = "INSERT INTO medals (athlete_id, event_id, type) VALUES ('#{@athlete_id}', '#{@event_id}', '#{@type}') RETURNING *"
     return Medal.map_item(sql)
   end
@@ -29,6 +30,16 @@ attr_reader(:id, :athlete_id, :event_id, :type)
     sql = "SELECT * FROM events WHERE id = #{@event_id}"
     return Event.map_item(sql)
   end
+
+  def check_if_nation_has_won_medal()
+     all_medals=Medal.all
+     athlete1=Athlete.find(@athlete_id)
+     for medal in all_medals
+       athlete2=Athlete.find(medal.athlete_id)
+       return true if (medal.type == @type && athlete1.nation_id != athlete2.nation_id)
+     end
+     return false
+   end
 
   def self.find(id)
     sql = "SELECT * FROM medals WHERE id = #{id}"
