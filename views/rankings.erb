@@ -1,0 +1,31 @@
+<h5 align="center"> Final Rankings </h5>
+
+
+<table align="center" >
+<tr>
+
+<th> Country </th>
+ <th> Gold Medals </th>
+ <th> Silver Medals </th>
+ <th> Bronze Medals </th>
+ <th> Total Points </th>
+ </tr>
+<% @ranking.ordered.each do |nation| %>
+
+ <tr>
+ 
+  <td><%= nation.name %></td>
+   <td><%= nation.total_medals_gold() %></td>
+   <td><%= nation.total_medals_silver() %></td>
+   <td><%= nation.total_medals_bronze() %></td>
+   <td><%= nation.total_points() %></td>
+   
+   
+   <% end %>
+   
+ </tr>
+</table>
+
+
+
+

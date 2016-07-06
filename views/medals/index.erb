@@ -1,0 +1,8 @@
+<a href="/medals/new">Add new medal</a>
+
+<% @medals.each do |medal| %><br><br> 
+<%= medal.type %><br>
+<%= medal.athlete.name %> <br>
+<%= medal.event.name  %>
+<br><hr>
+<% end %>

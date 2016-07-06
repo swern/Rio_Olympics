@@ -1,0 +1,7 @@
+<a href="/nations/new">Add new nation</a>
+<br>
+
+<% @nations.each do |nation| %>
+  <a href="/nations/<%= nation.id %>"><%= nation.name %></a>
+
+  <% end %>
