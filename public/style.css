@@ -1,4 +1,16 @@
 body {
-    background-image: url("http://www.arch2o.com/wp-content/uploads/2012/08/Arch2O-solar_city_tower_01.jpg");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center
+    background-size: cover;
 }
 
+h5 {
+  font-family: sans-serif;
+  color: white;
+  font-weight: lighter;
+}
+
+table, th, td{
+  border: solid #ccc 1px;
+}
